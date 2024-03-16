@@ -1,0 +1,41 @@
+* {
+    box-sizing: border-box;
+}
+
+body{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    overflow: hidden;
+    background-color: #b3aeae;
+}
+.container{
+    display: flex;
+    width: 80vw;
+}
+.panel{
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    border-radius: 10px;
+    flex: 0.5;
+    cursor: pointer;
+    position: relative;
+    height: 80vh;
+    transition: 0.7s;
+    margin: 10px;
+}
+.panel h3{
+    opacity: 0;
+    position: absolute;
+    /*脱离文档流*/
+    color: #ffffff;
+    font-size: 24px;
+}
+.panel.active h3{
+    opacity: 1;
+}
+.panel.active{
+    flex: 5;
+}
