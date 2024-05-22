@@ -1,0 +1,65 @@
+* {
+/* 加了box-sizing:border-box属性，padding和border的值就不会在影响元素的宽高，相当于把padding和border的值都算在content里
+盒子模型会自动根据padding和border的值来调整content的值，就不需要手动调整
+标准盒子模型，一般浏览器也都默认为标准盒子模型。即：box-sizing:content-box
+怪异盒子模型，一般根据实际项目需要自行设置。即：box-sizing:border-box */
+  box-sizing: border-box;
+}
+
+body {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    overflow: hidden;
+    margin: 0;
+}
+
+.container {
+    display: flex;
+    width: 90vw;
+}
+
+.panel {
+    height: 80vh;
+    border-radius: 50px;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    color: #fff;
+    cursor: pointer;
+    flex: 0.5;
+    margin: 10px;
+    position: relative;
+    -webkit-transition: all 700ms ease-in;
+}
+
+.panel h3 {
+    font-size: 24px;
+    /* 绝对定位脱离文本流 */
+    position: absolute;
+    bottom: 20px;
+    left: 20px;
+    margin: 0;
+    opacity: 0;
+}
+
+.panel.active {
+    flex: 5;
+}
+
+.panel.active h3 {
+    opacity: 1;
+    transition: opacity 0.3s ease-in 0.4s;
+}
+
+@media (max-width: 480px) {
+    .container {
+      width: 100vw;
+    }
+  
+    .panel:nth-of-type(4),
+    .panel:nth-of-type(5) {
+      display: none;
+    }
+  }
